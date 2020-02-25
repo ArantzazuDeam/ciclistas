@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link th:href=@{/css/general.css} rel="stylesheet"/>
+	<link th:href=@{/css/formularios.css} rel="stylesheet"/>
+	<title>Login</title>
+</head>
+
+<body>
+	<!-- Cabecera -->
+	<header class="header">
+		<h1>CICLISTAS</h1>
+	</header>
+	
+	<!-- Contenedor -->
+	<div class="contenedor">
+		<!-- form-izq -->
+		<div class="form-izq">
+			<form th:action="@{/logincheck}" method="POST">
+				<!-- Parametro oculto -->
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	
+				<h1>Iniciar sesión</h1>			
+				<!-- Username -->
+				<div class="fila">
+					<label class="col-izq" for="inputEmail" >Usuario</label>
+					<input class="col-dch" type="text" placeholder="Username" name="username" id="username" />				
+				</div>
+				
+				
+				<!-- Password -->
+				<div class="fila">
+					<label class="col-izq" for="inputPassword" >Contraseña</label>
+					<input class="col-dch" type="password"  placeholder="Password" name="password" id="password" />
+				</div>
+				
+				
+				<!-- Mensajes al usuario -->
+				<div th:if="${error!=null}"  role="alert">Invalid username or password</div>
+				<div th:if="${logout!=null}"  role="alert">Logout successfully!</div>
+				
+				<!-- Botón -->
+				<button type="submit" class="boton">
+					<span aria-hidden="true">Iniciar sesión</span>
+				</button>			
+			</form>
+		
+		</div>
+		<!-- fin form-izq -->
+			
+		<!-- form-dch -->
+		<div class="form-dch">
+			<h2>¿Aún no tienes cuenta?</h2>
+			<p>¡Registrate como ciclista o registra a tu equipo!</p>
+			<a href="#" th:href="@{/registro}">
+				<button class="boton"><span>Registro</span></button>
+			</a>
+		</div>
+		<!-- fin form-dch -->
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer" > 
+		<div class="caja">
+			<p>Copyright 2020</p>
+		</div>
+		
+		<div class="caja">
+			<p>Arantzazu De Alba</p>
+		</div>
+		
+		<div class="caja">
+			<p>Todos los derechos reservados</p>
+		</div>
+	</footer>
+
+</body>
+</html>

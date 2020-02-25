@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link th:href=@{/css/general.css} rel="stylesheet"/>
+	<link th:href=@{/css/formularios.css} rel="stylesheet"/>
+	<title>Inicio</title>
+</head>
+
+<body>
+
+	<!-- Cabecera -->
+	<header class="header">
+		<div>
+			<form th:action="@{/logout}" method="POST">
+				<button type="submit" class="boton">
+					<span aria-hidden="true"></span>
+					Cerrar sesión
+				</button>
+			</form>
+		<h1>Hola, <span th:text="${username}"></span>!</h1>
+		</div>		
+	</header>
+
+	<!--Menú-->
+	<div class="menu">
+		<ul>
+			<li> <a href="">Inicio</a> </li>
+			
+			<li class="derecha"> <a href="#">Mi perfil</a> </li> 
+			<li class="derecha"> <a href="#">Puertos</a> </li>
+			<li class="derecha"> <a href="#">Etapas</a> </li>
+			<li class="derecha"> <a href="#">Maillot</a> </li>
+			<li class="derecha"> <a href="#">Dorsal</a> </li>
+			<li class="derecha"> <a href="#" th:href="@{/equipo}">Equipos</a> </li>
+			<li class="derecha"> <a href="#">Ciclistas</a> </li>
+		</ul>
+	</div>
+
+
+	
+	<!-- Footer -->
+	<footer class="footer" > 
+		<div class="caja">
+			<p>Copyright 2020</p>
+		</div>
+		
+		<div class="caja">
+			<p>Arantzazu De Alba</p>
+		</div>
+		
+		<div class="caja">
+			<p>Todos los derechos reservados</p>
+		</div>
+	</footer>
+	
+</body>
+</html>

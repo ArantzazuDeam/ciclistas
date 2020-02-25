@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link th:href=@{/css/general.css} rel="stylesheet"/>
+	<link th:href=@{/css/formularios.css} rel="stylesheet"/>
+	<link th:href=@{/css/tablas.css} rel="stylesheet"/>
+	<title>Equipo</title>
+</head>
+
+<body>
+
+
+	<!--Menú-->
+	<div class="menu">
+		<ul>
+			<li> <a href="#" th:href="@{/inicio}">Inicio</a> </li>
+			
+			<li class="derecha"> <a href="#">Mi perfil</a> </li> 
+			<li class="derecha"> <a href="#">Puertos</a> </li>
+			<li class="derecha"> <a href="#">Etapas</a> </li>
+			<li class="derecha"> <a href="#">Maillot</a> </li>
+			<li class="derecha"> <a href="#">Dorsal</a> </li>
+			<li class="derecha"> <a href="#" th:href="@{/equipo}">Equipos</a> </li>
+			<li class="derecha"> <a href="#">Ciclistas</a> </li>
+		</ul>
+	</div>
+
+	<!-- Contenedor -->
+	<div class="contenedor">
+		<h1>EQUIPOS</h1>
+		
+		<div class="gestion">
+			<a href="#" th:href="@{/equipo/form-equipo?nomeq=''}">
+				<button class="boton"><span>NUEVO EQUIPO</span></button>
+			</a>				
+	
+			<!-- TABLA -->						
+			<table class="tabla">
+				<thead>
+					<tr>
+						<th>Nombre del equipo</th>
+						<th>Director</th>
+						<th>Logo</th>
+						<th>Modificar</th>
+						<th>Eliminar</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="equipo: ${equipos}">
+						<td><span th:text=${equipo.nomeq}></span></td>
+						<td><span th:text=${equipo.director}></span></td>
+						<td><span th:text=${equipo.logo}></span></td>
+																		
+						<!-- Modificar -->
+						<td>
+							<a href="#" th:ref="@{/equipo/form-equipo?nomeq=__${equipo.nomeq}__}">
+								<button class="boton"><span>MODIFICAR</span></button>
+							</a>												
+						</td>
+						
+						<!-- Eliminar -->
+						<td>
+							<form action="#" method="post">
+								<button class="boton"><span>ELIMINAR</span></button>
+							</form>												
+						</td>																				
+					</tr>
+
+				</tbody>
+			</table>
+			<!-- Fin de la tabla -->
+			
+
+		</div>
+	</div>
+	<!-- Fin Contenedor -->
+	
+	<!-- Footer -->
+	<footer class="footer" > 
+		<div class="caja">
+			<p>Copyright 2020</p>
+		</div>
+		
+		<div class="caja">
+			<p>Arantzazu De Alba</p>
+		</div>
+		
+		<div class="caja">
+			<p>Todos los derechos reservados</p>
+		</div>
+	</footer>
+	
+</body>
+</html>

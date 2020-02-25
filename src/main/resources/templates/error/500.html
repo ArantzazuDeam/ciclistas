@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link th:href=@{/css/general.css} rel="stylesheet"/>
+	<link th:href=@{/css/formularios.css} rel="stylesheet"/>
+	<title>Error 500</title>
+</head>
+
+<body>
+	<!-- Cabecera -->
+	<header class="header">
+		<h1>CICLISTAS</h1>
+	</header>
+	
+	<!-- Contenedor -->
+	<div class="contenedor">
+		<!-- form-izq -->
+		<div class="form-izq">
+			<h1>ERROR 500</h1>		
+		</div>
+		<!-- fin form-izq -->
+			
+		<!-- form-dch -->
+		<div class="form-dch">
+			<h2>¿Ya tienes cuenta?</h2>
+			<a href="#" th:href="@{/login}">
+				<button class="boton2"><span>Inicia sesión</span></button>
+			</a>
+		
+			<h2>¿Aún no tienes cuenta?</h2>
+			<p>Registrate como ciclista o registra a tu equipo!.</p>
+			<a href="#" th:href="@{/registro}">
+				<button class="boton2"><span>Registro</span></button>
+			</a>
+		</div>		
+		<!-- fin form-dch -->
+	
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer" > 
+		<div class="caja">
+			<p>Copyright 2020</p>
+		</div>
+		
+		<div class="caja">
+			<p>Arantzazu De Alba</p>
+		</div>
+		
+		<div class="caja">
+			<p>Todos los derechos reservados</p>
+		</div>
+	</footer>
+</body>
+</html>

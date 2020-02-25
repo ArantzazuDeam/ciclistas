@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link th:href=@{/css/general.css} rel="stylesheet"/>
+	<link th:href=@{/css/formularios.css} rel="stylesheet"/>
+	<title>Registro de ciclistas</title>
+</head>
+
+<body>
+	<!-- Cabecera -->
+	<header class="header">
+		<h1>CICLISTAS</h1>
+	</header>
+	
+	<!-- Contenedor -->
+	<div class="contenedor">
+	
+		<!-- form-izq -->
+		<div class="form-izq">
+			<form action="#" th:action="@{/registro/nuevoUsuario}" th:object="${usuario}"  method="post">	
+				<h1>Registrate</h1>
+				
+				<!-- Nombre de usuario -->
+				<div class="fila">
+					<label class="col-izq">Nombre de usuario: </label>
+					<input class="col-dch" type="text" th:field="*{username}" placeholder="Nombre de usuario"/>
+				</div>
+				
+				<!-- Tipo de usuario -->
+				<div class="fila">
+					<label class="col-izq">¿Ciclista o equipo?</label>
+					<select class="col-dch" th:field="*{role}" >
+						<option th:value="ROL_CICLISTA" th:text="Ciclista"></option>
+						<option th:value="ROL_EQUIPO" th:text="Equipo"></option>
+					</select>
+				</div>
+				
+				<!-- Contraseña -->
+				<div class="fila">
+					<label class="col-izq">Contraseña</label>
+					<input class="col-dch" type="password" th:field="*{password1}" placeholder="Contraseña"/>
+				</div>
+				
+				<!-- Repite la contraseña -->
+ 
+				<div class="fila">
+					<label class="col-izq">Repite la contraseña</label>
+					<input class="col-dch" type="password" th:field="*{password2}" placeholder="Contraseña"/>
+				</div>
+				
+				<!-- Botón -->
+				<button type="submit" class="boton">
+					<span  aria-hidden="true">Registrate</span>
+				</button>
+				
+				<div th:if="${error1!=null}"  role="alert">El usuario ya existe.</div>
+				<div th:if="${error2!=null}"  role="alert">Las contraseñas deben ser iguales</div>
+			</form>
+		
+		</div>
+		<!-- fin form-izq -->
+			
+		<!-- form-dch -->
+		<div class="form-dch">
+			<h2>¿Ya tienes cuenta?</h2>
+			<a href="#" th:href="@{/login}">
+				<button class="boton"><span>Inicia sesión</span></button>
+			</a>
+		</div>
+		<!-- fin form-dch -->
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer" > 
+		<div class="caja">
+			<p>Copyright 2020</p>
+		</div>
+		
+		<div class="caja">
+			<p>Arantzazu De Alba</p>
+		</div>
+		
+		<div class="caja">
+			<p>Todos los derechos reservados</p>
+		</div>
+	</footer>
+
+
+</body>
+</html>

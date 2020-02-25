@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link th:href=@{/css/general.css} rel="stylesheet"/>
+	<link th:href=@{/css/formularios.css} rel="stylesheet"/>
+	<title>Formulario de equipo</title>
+</head>
+<body>
+	<!--Menú-->
+	<div class="menu">
+		<ul>
+			<li> <a href="#" th:href="@{/inicio}">Inicio</a> </li>
+			
+			<li class="derecha"> <a href="#">Mi perfil</a> </li> 
+			<li class="derecha"> <a href="#">Puertos</a> </li>
+			<li class="derecha"> <a href="#">Etapas</a> </li>
+			<li class="derecha"> <a href="#">Maillot</a> </li>
+			<li class="derecha"> <a href="#">Dorsal</a> </li>
+			<li class="derecha"> <a href="#" th:href="@{/equipo}">Equipos</a> </li>
+			<li class="derecha"> <a href="#">Ciclistas</a> </li>
+		</ul>
+	</div>
+	<!-- Contenedor -->
+	<div class="contenedor">
+		<h1>FORMULARIO EQUIPO</h1>
+		
+		<div class="formulario">
+			<form action="#" th:action="@{/equipo/crearEquipo}" th:object="${equipo}" method="post" enctype="multipart/form-data">
+			
+			<!-- Nombre del equipo -->
+			<div th:if="*{nomeq}!=''" class="fila">
+				<label class="col-izq">Nombre del equipo: </label>
+				<input class="col-dch" type="text" placeholder="Nombre del equipo" th:field="*{nomeq}" required/>
+			</div>
+
+			<!-- Dni -->
+			<div class="fila">
+				<label class="col-izq">Director: </label>
+				<input class="col-dch" type="text" placeholder="Director" th:field="*{director}" required/>
+			</div>
+			
+			
+			<!-- Logo -->
+			<div class="fila">
+				<label class="col-izq" for="file">Foto: </label>
+				<input class="col-dch" type="text"  th:field="*{logo}">
+			</div>
+			
+			<!-- Botón enviar -->
+			<div>
+				<button class="boton"><span>Enviar</span></button>
+			</div>
+				
+			</form>
+		</div>
+					
+	</div>
+	<!-- Fin Contenedor -->
+
+	<!-- Footer -->
+	<footer class="footer" > 
+		<div class="caja">
+			<p>Copyright 2020</p>
+		</div>
+		
+		<div class="caja">
+			<p>Arantzazu De Alba</p>
+		</div>
+		
+		<div class="caja">
+			<p>Todos los derechos reservados</p>
+		</div>
+	</footer>
+</body>
+</html>
